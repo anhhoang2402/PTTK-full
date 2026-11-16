@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>${pageTitle} · LibMan06</title>
+    <link rel="stylesheet" href="${ctx}/assets/style.css">
+</head>
+<body>
+<header class="topbar no-print">
+    <a class="brand" href="${ctx}/">
+        <span class="brand-mark">L</span>
+        <span>LibMan06<small>University Library</small></span>
+    </a>
+    <nav>
+        <c:choose>
+            <c:when test="${not empty sessionScope.staff}">
+                <a href="${ctx}/staff/home">Staff home</a>
+                <span class="who">${sessionScope.staff.fullName}</span>
+                <a class="btn btn-ghost" href="${ctx}/logout">Log out</a>
+            </c:when>
+            <c:otherwise>
+                <a href="${ctx}/">Reader home</a>
+                <a class="btn btn-ghost" href="${ctx}/login">Staff login</a>
+            </c:otherwise>
+        </c:choose>
+    </nav>
+</header>
+<main class="page">
+<c:if test="${not empty sessionScope.flash}">
+    <div class="alert alert-error">${fn:escapeXml(sessionScope.flash)}</div>
+    <c:remove var="flash" scope="session"/>
+</c:if>
+<c:if test="${not empty error}">
+    <div class="alert alert-error">${fn:escapeXml(error)}</div>
+</c:if>

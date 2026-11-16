@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+    <display-name>LibMan06</display-name>
+
+    <context-param>
+        <param-name>jakarta.servlet.jsp.jstl.fmt.locale</param-name>
+        <param-value>en_US</param-value>
+    </context-param>
+
+    <request-character-encoding>UTF-8</request-character-encoding>
+    <response-character-encoding>UTF-8</response-character-encoding>
+
+    <servlet>
+        <servlet-name>ReaderHomeView06</servlet-name>
+        <jsp-file>/WEB-INF/views/ReaderHomeView06.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReaderHomeView06</servlet-name>
+        <url-pattern></url-pattern>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StaffHomeView06</servlet-name>
+        <jsp-file>/WEB-INF/views/StaffHomeView06.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StaffHomeView06</servlet-name>
+        <url-pattern>/staff/home</url-pattern>
+    </servlet-mapping>
+
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <url-pattern>*.jspf</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+            <trim-directive-whitespaces>true</trim-directive-whitespaces>
+        </jsp-property-group>
+    </jsp-config>
+
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/WEB-INF/views/ErrorView06.jsp</location>
+    </error-page>
+</web-app>
